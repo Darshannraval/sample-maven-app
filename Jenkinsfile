@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven "Maven"
+        maven "M3"
     }
     
      triggers {
@@ -10,7 +10,7 @@ pipeline {
     stages{
         stage("Build"){
             steps{
-                 sh script: 'mvn clean package'
+                 sh 'mvn -B -DskipTests clean package'
             }
         }
 }
