@@ -1,13 +1,13 @@
 pipeline {
     agent any
     tools {
-        maven 'maven 3.3.9'
+        maven 'maven 3.6.3'
+        jdk 'jdk8'
     }
     stages{
         stage('Build'){
             steps{
                  sh script: 'mvn clean package'
-                 archiveArtifacts artifacts: 'target/*.war', onlyIfSuccessful: true
             }
         }
 }
