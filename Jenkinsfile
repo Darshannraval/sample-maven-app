@@ -1,11 +1,14 @@
 pipeline {
     agent any
     tools {
-        maven 'maven 3.6.3'
-        jdk 'jdk8'
+        maven "Maven"
+    }
+    
+     triggers {
+        pollSCM "* * * * *"
     }
     stages{
-        stage('Build'){
+        stage("Build"){
             steps{
                  sh script: 'mvn clean package'
             }
